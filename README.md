@@ -46,5 +46,30 @@ Transactional Commands
 
     COMMIT – Close all open transaction blocks, permanently applying the changes made in them. Print nothing if successful, or print NO TRANSACTION if no transaction is in progress.
 
+Examples: 
+--- 
+
+`SET a 10
+SET b 10
+NUMEQUALTO 10
+NUMEQUALTO 20
+SET b 30
+NUMEQUALTO 10
+END`
+
+
+`BEGIN
+SET a 10
+GET a
+BEGIN
+SET a 20
+GET a
+ROLLBACK
+GET a
+ROLLBACK
+GET a
+END`
+
+
 
 
